@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>9.0</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="System.Linq\" />
+    <Folder Include="System.Threading\" />
+    <Folder Include="System\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Memory" Version="4.5.4" />
+    <PackageReference Include="Microsoft.Toolkit.HighPerformance" Version="7.1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Microsoft.Toolkit.HighPerformance" />
+  </ItemGroup>
+</Project>
