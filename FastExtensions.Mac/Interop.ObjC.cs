@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace FastExtensions.Mac
+
+namespace ObjCRuntime.Native
 {
-    public static partial class Interop
-    {
+	using NSObjectSafeHandle = IntPtr;
+
+	public static partial class Interop
+	{
 		internal const string LIBOBJC_DYLIB = "/usr/lib/libobjc.dylib";
 
 		public struct objc_super
@@ -13,8 +16,8 @@ namespace FastExtensions.Mac
 			public IntPtr SuperHandle;
 		}
 
-//		[DllImport(LIBOBJC_DYLIB, EntryPoint = "objc_msgSend")]
-//		public extern static void void_objc_msgSend_IntPtr_CGPoint_ref_CGPoint(NSObjectSafeHandle receiver, IntPtr selector, IntPtr scrollView, CGPoint velocity, ref CGPoint targetContentOffset);
+		//		[DllImport(LIBOBJC_DYLIB, EntryPoint = "objc_msgSend")]
+		//		public extern static void void_objc_msgSend_IntPtr_CGPoint_ref_CGPoint(NSObjectSafeHandle receiver, IntPtr selector, IntPtr scrollView, CGPoint velocity, ref CGPoint targetContentOffset);
 
 		[DllImport(LIBOBJC_DYLIB, EntryPoint = "objc_msgSendSuper")]
 		public extern static void void_objc_msgSendSuper(ref objc_super receiver, IntPtr selector);

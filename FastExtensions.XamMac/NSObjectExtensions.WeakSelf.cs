@@ -7,11 +7,11 @@ using Foundation;
 
 namespace Foundation
 {
-    public static class NSObjectExtensions
+    public static partial class NSObjectExtensions
     {
         static readonly WeakSelfMap<NSObject> _weakSelfMap = new();
 
-        public static UniqueWeakReference<T> WeakSelf<T>(this T? that) where T : NSObject
+        public static Weak<T> WeakSelf<T>(this T? that) where T : NSObject
         {
             return _weakSelfMap.GetOrCreate<T>(that);
         }

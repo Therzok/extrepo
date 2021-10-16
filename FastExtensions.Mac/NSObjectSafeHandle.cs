@@ -2,8 +2,9 @@
 using System.Runtime.InteropServices;
 using Microsoft.Win32.SafeHandles;
 
-namespace FastExtensions.Mac
+namespace ObjCRuntime.Native
 {
+    /*
     public class NSObjectSafeHandle : SafeHandleZeroOrMinusOneIsInvalid
     {
         public NSObjectSafeHandle(IntPtr native, bool owned) : base(owned)
@@ -30,5 +31,6 @@ namespace FastExtensions.Mac
             return base.ReleaseHandle();
         }
     }
+    */
 }
 

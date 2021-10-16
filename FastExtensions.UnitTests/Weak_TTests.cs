@@ -5,7 +5,7 @@ using NUnit.Framework;
 namespace FastExtensions.UnitTests;
 
 [TestFixture]
-public class DeduplicatingWeakReferenceTests
+public class Weak_TTests
 {
     [Test]
     public void TestEmpty()
@@ -23,6 +23,19 @@ public class DeduplicatingWeakReferenceTests
     }
 
     [Test]
+    public void TestGetAndTryGetAreSame()
+    {
+        var map = new WeakSelfMap<object>();
+
+        var first = new StringBuilder();
+
+        var weakRef = map.GetOrCreate<object>(first);
+
+        weakRef.TryGet(out var weak);
+        Assert.AreSame(weakRef.Get(), weak);
+    }
+
+    [Test]
     public void TestSameDerived()
     {
         var map = new WeakSelfMap<object>();
@@ -31,14 +44,17 @@ public class DeduplicatingWeakReferenceTests
 
         var weakRef = map.GetOrCreate<object>(first);
 
-        Assert.IsTrue(weakRef.TryGetTarget(out var target));
+        Assert.IsNotNull(weakRef.Get());
+        Assert.IsTrue(weakRef.TryGet(out var target));
         Assert.AreSame(target, first);
 
         var stringRef = map.GetOrCreate<string>(first);
-        Assert.IsFalse(stringRef.TryGetTarget(out _));
+        Assert.IsNull(stringRef.Get());
+        Assert.IsFalse(stringRef.TryGet(out _));
 
         var stringBuilderRef = map.GetOrCreate<StringBuilder>(first);
-        Assert.IsTrue(stringBuilderRef.TryGetTarget(out var stringBuilderTarget));
+        Assert.IsNotNull(stringBuilderRef.Get());
+        Assert.IsTrue(stringBuilderRef.TryGet(out var stringBuilderTarget));
         Assert.AreSame(target, stringBuilderTarget);
         Assert.AreSame(weakRef.UniqueHandle, stringBuilderRef.UniqueHandle);
     }

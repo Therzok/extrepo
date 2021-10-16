@@ -10,6 +10,7 @@
     <Folder Include="System.Linq\" />
     <Folder Include="System.Threading\" />
     <Folder Include="System\" />
+    <Folder Include="System.Memory\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,5 +19,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Microsoft.Toolkit.HighPerformance" />
+    <None Remove="System.Memory\" />
   </ItemGroup>
 </Project>

@@ -52,12 +52,16 @@
     <Reference Include="Xamarin.Mac" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MyClass.cs" />
+    <Compile Include="NSObjectExtensions.WeakSelf.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="INativeObjectExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FastExtensions\FastExtensions.csproj">
       <Name>FastExtensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FastExtensions.Mac\FastExtensions.Mac.csproj">
+      <Name>FastExtensions.Mac</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />

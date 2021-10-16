@@ -2,6 +2,7 @@
 
 namespace System.Linq
 {
+    // 100% productivity win with Arrays, and also perf boost, but not sure how useful with net6 and specialized codegen.   
     public static partial class FastExtensions
     {
         // source generator for LINQ extensions on concrete types to avoid box
@@ -12,6 +13,16 @@ namespace System.Linq
         public static bool Contains<T>(this T[] array, T value)
         {
             return Array.IndexOf(array, value) != -1;
+        }
+
+        public static T First<T>(this T[] array)
+        {
+            return array[0];
+        }
+
+        public static T? FirstOrDefault<T>(this T[] array)
+        {
+            return array.Length > 0 ? array[0] : default;
         }
 
         public static T[] RemoveAt<T>(this T[] array, int index)

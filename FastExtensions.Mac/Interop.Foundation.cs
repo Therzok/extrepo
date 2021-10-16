@@ -1,5 +1,5 @@
 ﻿using System;
-namespace FastExtensions.Mac
+namespace Foundation.Native
 {
     public static partial class Interop
     {
