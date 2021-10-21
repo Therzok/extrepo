@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using Microsoft.Win32.SafeHandles;
 
-namespace ObjCRuntime.Native
+namespace ObjCRuntime
 {
     /*
     public class NSObjectSafeHandle : SafeHandleZeroOrMinusOneIsInvalid

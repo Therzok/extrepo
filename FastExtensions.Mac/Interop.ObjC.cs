@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-
 namespace ObjCRuntime.Native
 {
 	using NSObjectSafeHandle = IntPtr;
 
-	public static partial class Interop
+	public static partial class RuntimeInterop
 	{
 		internal const string LIBOBJC_DYLIB = "/usr/lib/libobjc.dylib";
 

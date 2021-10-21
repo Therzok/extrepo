@@ -1,13 +1,13 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 
-// Different namespace?
-namespace System
+namespace System;
+
+public static class ThrowHelper
 {
-    public static class ThrowHelper
-    {
-        [DoesNotReturn]
-        public static void ThrowArgumentNullException(string paramName) => throw new ArgumentNullException(paramName);
-    }
+    [DoesNotReturn]
+    public static void ThrowArgumentNullException(string paramName) => throw new ArgumentNullException(paramName);
+
+    [DoesNotReturn]
+    public static void ThrowInvalidOperationException(string message) => throw new InvalidOperationException(message);
 }
 

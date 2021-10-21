@@ -27,34 +27,33 @@
 using System;
 using System.Threading.Tasks;
 
-namespace System.Threading
+namespace System.Threading;
+
+public static partial class FastExtensions
 {
-    public static partial class FastExtensions
+    public static async Task<SemaphoreSlimLocker> LockAsync(this SemaphoreSlim @lock, CancellationToken cancellationToken = default)
     {
-        public static async Task<SemaphoreSlimLocker> LockAsync(this SemaphoreSlim @lock, CancellationToken cancellationToken = default)
-        {
-            await @lock.WaitAsync(cancellationToken).ConfigureAwait(false);
+        await @lock.WaitAsync(cancellationToken).ConfigureAwait(false);
 
-            return new SemaphoreSlimLocker(@lock);
+        return new SemaphoreSlimLocker(@lock);
+    }
+
+    public static SemaphoreSlimLocker Lock(this SemaphoreSlim @lock, CancellationToken cancellationToken = default)
+    {
+        @lock.Wait(cancellationToken);
+
+        return new SemaphoreSlimLocker(@lock);
+    }
+
+    public readonly struct SemaphoreSlimLocker : IDisposable
+    {
+        readonly SemaphoreSlim _lock;
+
+        internal SemaphoreSlimLocker(SemaphoreSlim @lock)
+        {
+            _lock = @lock;
         }
 
-        public static SemaphoreSlimLocker Lock(this SemaphoreSlim @lock, CancellationToken cancellationToken = default)
-        {
-            @lock.Wait(cancellationToken);
-
-            return new SemaphoreSlimLocker(@lock);
-        }
-
-        public readonly struct SemaphoreSlimLocker : IDisposable
-        {
-            readonly SemaphoreSlim _lock;
-
-            internal SemaphoreSlimLocker(SemaphoreSlim @lock)
-            {
-                _lock = @lock;
-            }
-
-            public void Dispose() => _lock.Release();
-        }
+        public void Dispose() => _lock.Release();
     }
 }
