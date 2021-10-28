@@ -59,6 +59,7 @@
     <Compile Include="AppKit\NSStackViewExtensions.cs" />
     <Compile Include="AppKit\NSViewExtensions.cs" />
     <Compile Include="ObjCRuntime\SelectorExtensions.cs" />
+    <Compile Include="OwnedReference.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FastExtensions\FastExtensions.csproj">

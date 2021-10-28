@@ -51,5 +51,16 @@ public sealed class WeakSelfMap<T> where T : class?
         result = new Weak<TTarget>(SafeGCHandle.Empty);
         return false;
     }
+
+    internal bool TryGetValue(T? target, out SafeGCHandle rawReference)
+    {
+        if (target is null)
+        {
+            rawReference = SafeGCHandle.Empty;
+            return false;
+        }
+
+        return _map.TryGetValue(target, out rawReference);
+    }
 }
 

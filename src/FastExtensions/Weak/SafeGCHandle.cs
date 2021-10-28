@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 namespace System;
 
 // This intentionally doesn't implement IDisposable, there is no direct way to remove items from the mapping.
-abstract class SafeGCHandle
+public abstract class SafeGCHandle
 {
     public static readonly SafeGCHandle Empty = new EmptyHandle();
 
