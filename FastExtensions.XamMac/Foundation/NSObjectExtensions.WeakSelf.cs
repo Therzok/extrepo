@@ -13,6 +13,7 @@ public static partial class NSObjectExtensions
 
     public static Weak<T> WeakSelf<T>(this T? that) where T : NSObject
     {
+        // TODO: Investigate whether we can do selector forwarding: https://www.informit.com/articles/article.aspx?p=1765122&seqNum=13
         return _weakSelfMap.GetOrAdd<T>(that);
     }
 }

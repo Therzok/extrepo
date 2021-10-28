@@ -32,6 +32,8 @@ public readonly struct CacheCode<T> : IEquatable<CacheCode<T>>, IEquatable<T> wh
     {
     }
 
+    // TODO: Find a way to do it via IEqualityComparer. Can we cache it somehow?
+
     public bool Equals(T other) => _value.Equals(other);
 
     public bool Equals(CacheCode<T> other) => Equals(other._value);

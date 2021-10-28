@@ -23,6 +23,26 @@ public static partial class FastExtensions
         return array.Length > 0 ? array[0] : default;
     }
 
+    public static bool Any<T>(this T[] array)
+    {
+        return array.Length > 0;
+    }
+
+    public static int IndexOf<T>(this T[] array, T value)
+    {
+        return Array.IndexOf(array, value);
+    }
+
+    public static int IndexOf<T>(this T[] array, T value, int startIndex)
+    {
+        return Array.IndexOf(array, value, startIndex);
+    }
+
+    public static int IndexOf<T>(this T[] array, T value, int startIndex, int count)
+    {
+        return Array.IndexOf(array, value, startIndex, count);
+    }
+
     public static T[] RemoveAt<T>(this T[] array, int index)
     {
         ReadOnlySpan<T> span = array;
