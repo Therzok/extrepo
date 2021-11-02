@@ -4,6 +4,7 @@ using System.Diagnostics.Tracing;
 
 namespace FastExtensions.Specialized.Weak;
 
+/*
 [EventSource(Name = DeduplicatedWeakEventSource.EventSourceName)]
 public sealed class DeduplicatedWeakEventSource : EventSource
 {
@@ -38,3 +39,4 @@ public sealed class DeduplicatedWeakEventSource : EventSource
         base.Dispose(disposing);
     }
 }
+*/

@@ -82,23 +82,23 @@ public class Weak_TTests
 
         // Null object and invalid type are empty handles.
         var nullObj = map.GetOrAdd<object>(null).GetHandle();
-        Assert.Equal("System.SafeGCHandle+EmptyHandle", nullObj.GetType().FullName);
+        Assert.Equal("FastExtensions.Specialized.Weak.SafeGCHandle+EmptyHandle", nullObj.GetType().FullName);
 
         var typeMismatchObj = map.GetOrAdd<StringComparer>(obj).GetHandle();
-        Assert.Equal("System.SafeGCHandle+EmptyHandle", typeMismatchObj.GetType().FullName);
+        Assert.Equal("FastExtensions.Specialized.Weak.SafeGCHandle+EmptyHandle", typeMismatchObj.GetType().FullName);
 
         var typeMismatchOtherObj = map.GetOrAdd<StringComparer>(new object()).GetHandle();
-        Assert.Equal("System.SafeGCHandle+EmptyHandle", typeMismatchOtherObj.GetType().FullName);
+        Assert.Equal("FastExtensions.Specialized.Weak.SafeGCHandle+EmptyHandle", typeMismatchOtherObj.GetType().FullName);
 
         // Check the same EmptyHandle is used.
         Assert.Same(nullObj, typeMismatchObj);
         Assert.Same(typeMismatchObj, typeMismatchOtherObj);
 
         var weakObj = map.GetOrAdd<object>(obj).GetHandle();
-        Assert.Equal("System.SafeGCHandle+AllocatedHandle", weakObj.GetType().FullName);
+        Assert.Equal("FastExtensions.Specialized.Weak.SafeGCHandle+AllocatedHandle", weakObj.GetType().FullName);
 
         var weakStringBuilder = map.GetOrAdd<StringBuilder>(obj).GetHandle();
-        Assert.Equal("System.SafeGCHandle+AllocatedHandle", weakStringBuilder.GetType().FullName);
+        Assert.Equal("FastExtensions.Specialized.Weak.SafeGCHandle+AllocatedHandle", weakStringBuilder.GetType().FullName);
 
         // Check the GCHandles are the same.
         Assert.Same(weakObj, weakStringBuilder);
