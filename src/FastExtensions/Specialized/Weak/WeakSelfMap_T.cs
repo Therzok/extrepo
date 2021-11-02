@@ -1,6 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 
-namespace System;
+namespace FastExtensions.Specialized.Weak;
 
 /// <summary>
 /// A map in which each key has a unique weak reference attached to itself.

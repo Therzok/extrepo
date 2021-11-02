@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 
+using FastExtensions.Specialized.Weak;
+
 namespace System;
 
 static class Weak_TExtensions

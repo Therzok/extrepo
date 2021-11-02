@@ -1,0 +1,17 @@
+﻿static System.Linq.FastExtensions.FindIndex<T>(this System.Collections.Generic.IEnumerable<T> source, System.Func<T, bool> predicate) -> int
+System.Linq.FastExtensions
+System.SafeGCHandle
+System.SafeGCHandle.SafeGCHandle() -> void
+System.Threading.FastExtensions.ReadLockExiter
+System.Threading.FastExtensions.ReadLockExiter.Dispose() -> void
+System.Threading.FastExtensions.ReadLockExiter.ReadLockExiter() -> void
+System.Threading.FastExtensions.SemaphoreSlimLocker
+System.Threading.FastExtensions.SemaphoreSlimLocker.Dispose() -> void
+System.Threading.FastExtensions.SemaphoreSlimLocker.SemaphoreSlimLocker() -> void
+System.Threading.FastExtensions.UpgradeableReadLockExiter
+System.Threading.FastExtensions.UpgradeableReadLockExiter.Dispose() -> void
+System.Threading.FastExtensions.UpgradeableReadLockExiter.EnterWrite() -> void
+System.Threading.FastExtensions.UpgradeableReadLockExiter.UpgradeableReadLockExiter() -> void
+System.Threading.FastExtensions.WriteLockExiter
+System.Threading.FastExtensions.WriteLockExiter.Dispose() -> void
+System.ThrowHelper

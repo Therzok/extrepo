@@ -5,6 +5,8 @@ using System.Runtime.InteropServices;
 using System.Runtime.Serialization;
 using Foundation;
 
+using FastExtensions.Specialized.Weak;
+
 namespace Foundation;
 
 public static partial class NSObjectExtensions

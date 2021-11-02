@@ -3,6 +3,8 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using Xunit;
 
+using FastExtensions.Specialized.Weak;
+
 namespace FastExtensions.UnitTests;
 
 public class Weak_TTests

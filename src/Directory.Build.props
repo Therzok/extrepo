@@ -1,0 +1,10 @@
+<Project>
+  <ItemGroup Condition=" '$(MSBuildProjectName)' != 'FastExtensions.UnitTests' OR '$(MSBuildProjectName)' != 'FastExtensions.XamMac' ">
+    <AdditionalFiles
+            Include="$(MSBuildProjectDirectory)PublicAPI.Unshipped.txt"
+            Condition="Exists('$(MSBuildProjectDirectory)PublicAPI.Unshipped.txt')" />
+    <AdditionalFiles
+            Include="$(MSBuildProjectDirectory)PublicAPI.Shipped.txt"
+            Condition="Exists('$(MSBuildProjectDirectory)PublicAPI.Shipped.txt')" />
+  </ItemGroup>
+</Project>

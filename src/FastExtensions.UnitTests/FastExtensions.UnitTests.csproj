@@ -18,9 +18,6 @@
     <ProjectReference Include="..\FastExtensions\FastExtensions.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove="Weak\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Weak\" />
+    <None Include="..\.editorconfig" />
   </ItemGroup>
 </Project>

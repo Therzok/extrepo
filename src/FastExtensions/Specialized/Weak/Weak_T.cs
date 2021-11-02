@@ -1,6 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 
-namespace System;
+namespace FastExtensions.Specialized.Weak;
 
 /// <summary>
 /// This struct wraps a <see cref="WeakReference{T}"/>-like created via <see cref="WeakSelfMap{T}"/>.

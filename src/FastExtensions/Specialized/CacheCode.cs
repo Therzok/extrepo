@@ -1,4 +1,4 @@
-﻿namespace System;
+﻿namespace FastExtensions.Specialized;
 
 /// <summary>
 /// A pair of <see cref="(T, int)"/> which caches the <see cref="GetHashCode"/> result on creation.

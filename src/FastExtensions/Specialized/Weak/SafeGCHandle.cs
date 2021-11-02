@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace System;
+namespace FastExtensions.Specialized.Weak;
 
 // This intentionally doesn't implement IDisposable, there is no direct way to remove items from the mapping.
 public abstract class SafeGCHandle
@@ -25,9 +25,15 @@ public abstract class SafeGCHandle
     sealed class AllocatedHandle : SafeGCHandle
     {
         GCHandle _handle;
-        public AllocatedHandle(GCHandle handle) => _handle = handle;
+        public AllocatedHandle(GCHandle handle)
+        {
+            _handle = handle;
+        }
 
-        ~AllocatedHandle() => _handle.Free();
+        ~AllocatedHandle()
+        {
+            _handle.Free();
+        }
 
         // _handle.Allocated can never be false until finalization.
         internal sealed override object? Get() => _handle.Target;
