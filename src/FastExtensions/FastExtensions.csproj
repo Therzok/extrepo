@@ -6,28 +6,20 @@
     <LangVersion>10.0</LangVersion>
     <ImplicitUsings>true</ImplicitUsings>
     <DefineConstants>INTERNAL_NULLABLE_ATTRIBUTES</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-  </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="System.Collections.Immutable" Version="6.0.0" />
     <PackageReference Include="System.Memory" Version="4.5.4" />
     <PackageReference Include="Microsoft.Toolkit.HighPerformance" Version="7.1.1" />
     <PackageReference Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" Version="3.3.3">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Remove="Specialized\Weak\" />
-    <None Remove="Extensions\System.Diagnostics\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Specialized\Weak\" />
-    <Folder Include="Extensions\System.Diagnostics\" />
+    <PackageReference Include="Microsoft.CodeAnalysis.PerformanceSensitiveAnalyzers" Version="3.3.1">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 </Project>
