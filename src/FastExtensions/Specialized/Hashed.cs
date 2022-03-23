@@ -39,10 +39,9 @@ public readonly struct Hashed<T> : IEquatable<Hashed<T>>, IEquatable<T> where T 
 
     public override bool Equals(object obj) => obj switch
     {
-        null => false,
         T other => Equals(other),
         Hashed<T> other => Equals(other),
-        _ => throw new InvalidOperationException($"Expected {typeof(T)} or {typeof(Hashed<T>)}, got {obj.GetType()}"),
+        _ => false,
     };
 
     public T Value => _value;
