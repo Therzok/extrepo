@@ -1,4 +1,14 @@
-﻿static System.Linq.FastExtensions.FindIndex<T>(this System.Collections.Generic.IEnumerable<T> source, System.Func<T, bool> predicate) -> int
+﻿FastExtensions.Specialized.Hashed<T>
+FastExtensions.Specialized.Hashed<T>.Equals(FastExtensions.Specialized.Hashed<T> other) -> bool
+FastExtensions.Specialized.Hashed<T>.Equals(T other) -> bool
+FastExtensions.Specialized.Hashed<T>.Hashed() -> void
+FastExtensions.Specialized.Hashed<T>.Hashed(T value) -> void
+FastExtensions.Specialized.Hashed<T>.Hashed(T value, int hashCode) -> void
+FastExtensions.Specialized.Hashed<T>.Value.get -> T
+override FastExtensions.Specialized.Hashed<T>.Equals(object! obj) -> bool
+override FastExtensions.Specialized.Hashed<T>.GetHashCode() -> int
+override FastExtensions.Specialized.Hashed<T>.ToString() -> string!
+static System.Linq.FastExtensions.FindIndex<T>(this System.Collections.Generic.IEnumerable<T> source, System.Func<T, bool> predicate) -> int
 System.Linq.FastExtensions
 System.SafeGCHandle
 System.SafeGCHandle.SafeGCHandle() -> void

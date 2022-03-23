@@ -103,4 +103,13 @@ public class Weak_TTests
         // Check the GCHandles are the same.
         Assert.Same(weakObj, weakStringBuilder);
     }
+
+    [Theory]
+    [InlineData(1, 2.0)]
+    [InlineData(1, 3.0)]
+    [InlineData(1, 4.0)]
+    public void Meh(int x, double y)
+    {
+
+    }
 }

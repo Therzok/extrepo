@@ -8,8 +8,9 @@
 /// This can also be used to force a hashcode value for a given object.
 /// </remarks>
 /// <typeparam name="T"></typeparam>
-public readonly struct CacheCode<T> : IEquatable<CacheCode<T>>, IEquatable<T> where T : IEquatable<T>
+public readonly struct Hashed<T> : IEquatable<Hashed<T>>, IEquatable<T> where T : notnull, IEquatable<T>
 {
+    // TODO: Find a way to use an IEqualityComparer, but that would require runtime checks.
     readonly T _value;
     readonly int _hashCode;
 
@@ -18,7 +19,7 @@ public readonly struct CacheCode<T> : IEquatable<CacheCode<T>>, IEquatable<T> wh
     /// </summary>
     /// <param name="value">The underlying value </param>
     /// <param name="hashCode">The hashcode value corresponding to the <see cref="value"/>.</param>
-    public CacheCode(T value, int hashCode)
+    public Hashed(T value, int hashCode)
     {
         _value = value;
         _hashCode = hashCode;
@@ -28,28 +29,31 @@ public readonly struct CacheCode<T> : IEquatable<CacheCode<T>>, IEquatable<T> wh
     /// Creates a cached hashcode pair of <see cref="T"/> <paramref name="value"/> associated with its <see cref="int"/> <see cref="T.GetHashCode"/> result.
     /// </summary>
     /// <param name="value">The underlying value on which <see cref="T.GetHashCode"/> is called.</param>
-    public CacheCode(T value) : this(value, value.GetHashCode())
+    public Hashed(T value) : this(value, value.GetHashCode())
     {
     }
 
-    // TODO: Find a way to do it via IEqualityComparer. Can we cache it somehow?
-
     public bool Equals(T other) => _value.Equals(other);
 
-    public bool Equals(CacheCode<T> other) => Equals(other._value);
+    public bool Equals(Hashed<T> other) => Equals(other._value);
 
     public override bool Equals(object obj) => obj switch
     {
         null => false,
         T other => Equals(other),
-        CacheCode<T> other => Equals(other),
-        _ => throw new InvalidOperationException($"Expected {typeof(T)} or {typeof(CacheCode<T>)}, got {obj.GetType()}"),
+        Hashed<T> other => Equals(other),
+        _ => throw new InvalidOperationException($"Expected {typeof(T)} or {typeof(Hashed<T>)}, got {obj.GetType()}"),
     };
+
+    public T Value => _value;
 
     public override int GetHashCode() => _hashCode;
 
     public override string ToString() => _value.ToString();
 
-    public static implicit operator T(CacheCode<T> cacheCode) => cacheCode._value;
-    public static explicit operator CacheCode<T>(T value) => new(value);
+    // Not sure I like these yet, we'd end up with intermediate conversions
+    // that would cause recalculation of the hashcode on reconstruction.
+
+    //public static implicit operator T(Hashed<T> hashed) => hashed._value;
+    //public static explicit operator Hashed<T>(T value) => new(value);
 }

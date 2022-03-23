@@ -10,10 +10,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-	  <!--
-    <PackageReference Include="System.Collections.Immutable" Version="5.0.0" />
-	  -->
-    <PackageReference Include="System.Memory" Version="4.5.4" />
     <PackageReference Include="Microsoft.Toolkit.HighPerformance" Version="7.1.1" />
     <PackageReference Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" Version="3.3.3">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -25,9 +21,10 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     -->
-    <PackageReference Include="System.Collections.Immutable" Version="6.0.0" />
   </ItemGroup>
-  <ItemGroup>
-    <None Remove="System.Collections.Immutable" />
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+    <PackageReference Include="System.Memory" Version="4.5.4" />
+    <PackageReference Include="System.Collections.Immutable" Version="6.0.0" />
   </ItemGroup>
 </Project>
